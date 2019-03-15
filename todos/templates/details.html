@@ -1,0 +1,17 @@
+{% extends 'main.html' %}
+<!-- {% include 'partials/header.html' %}
+
+<a href="/todos">Go Back</a>
+<h1>{{todo.title}}</h1>
+<p>{{todo.text}}</p>
+<br>
+<p class="text-muted">Created on {{todo.created_at}}</p>
+{% include 'partials/footer.html' %} -->
+
+{% block content %}
+<a href="/todos">Go Back</a>
+<h1>{{todo.title}}</h1>
+<p class="text-muted">Created on {{todo.created_at}}</p>
+<p>{{todo.text}}</p>
+<br>
+{% endblock %}

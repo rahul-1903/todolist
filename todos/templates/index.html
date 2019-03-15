@@ -1,0 +1,25 @@
+{% extends "main.html" %}
+
+{% block content %}
+    <table class="table table-bordered">
+        <caption class="table-caption">The TODO Schedule</caption>
+        {% for todo in todos %}
+            {% if todo.complete == True %}
+            <tr>
+                <td><strike><a href="/todos/details/{{todo.id}}" class="text-muted">{{todo.title}}</a></strike>
+                    <br><p><small class="text-muted">{{todo.created_at | date}} - {{todo.due_date | date}}</small></p></td>
+                <td><center><strike>{{todo.text}}</strike></center></td>
+                <td><center><a class="btn btn-danger" href="{% url 'delete' id=todo.id %}">Delete</a> <a class="btn btn-secondary" href="{% url 'complete' id=todo.id %}">Uncheck</a></center></td>
+            </tr>
+            {% endif %}
+            {% if todo.complete == False %}
+            <tr>
+                <td><a href="/todos/details/{{todo.id}}">{{todo.title}}</a>
+                    <br><p><small class="text-muted">{{todo.created_at | date}} - {{todo.due_date | date}}</small></p></td>
+                <td style="vertical-align: center"><center>{{todo.text}}</center></td>
+                <td><center><a class="btn btn-danger" href="{% url 'delete' id=todo.id %}">Delete</a> <a class="btn btn-success" href="{% url 'complete' id=todo.id %}">Check</a></center></td>
+            </tr>
+            {% endif %}
+        {% endfor %}
+    </table>
+{% endblock %}

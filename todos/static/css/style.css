@@ -1,0 +1,24 @@
+* {
+    font-family: cursive;
+}
+
+body {
+    font-family: sans-serif;
+}
+a {
+    color: green;
+}
+
+.strike {
+    text-transform: underline;
+}
+
+.middle {
+    display: table;
+    vertical-align: center;
+}
+caption {
+    caption-side: top;
+    text-align: center;
+  }
+  
